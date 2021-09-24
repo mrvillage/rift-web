@@ -39,7 +39,7 @@
                   class="align-self-end"
                   fab
                   outlined
-                  @click="$vuetify.goTo('#about-me')"
+                  @click="$vuetify.goTo('#what-is-rift')"
                 >
                   <v-icon>mdi-chevron-double-down</v-icon>
                 </v-btn>
@@ -67,7 +67,7 @@
           max-width="720"
         >
           Rift is a multi-purpose Discord bot for all your Politics and War
-          needs! From embassies to tickets to general information, Rift is here
+          needs. From embassies to tickets to general information, Rift is here
           to make your life easy!
         </v-responsive>
 
