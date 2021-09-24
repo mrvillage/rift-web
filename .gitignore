@@ -24,3 +24,6 @@ pnpm-debug.log*
 
 # Out files
 /out
+
+# firebase
+.firebase

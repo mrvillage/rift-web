@@ -8,7 +8,7 @@
           alt="Rift Logo"
           class="shrink mr-2"
           contain
-          src="./assets/rift-logo.png"
+          src="./assets/logo.png"
           transition="scale-transition"
           width="50"
         />
