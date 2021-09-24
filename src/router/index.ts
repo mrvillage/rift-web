@@ -12,24 +12,24 @@ const routes: Array<RouteConfig> = [
     name: "Landing",
     component: Landing,
   },
-  {
-    path: "/settings",
-    name: "Settings",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import("../views/Settings.vue"),
-  },
-  {
-    path: "/signin",
-    name: "SignIn",
-    component: SignIn,
-  },
-  {
-    path: "/callback",
-    name: "Callback",
-    component: Callback,
-  },
+  // {
+  //   path: "/settings",
+  //   name: "Settings",
+  //   // route level code-splitting
+  //   // this generates a separate chunk (about.[hash].js) for this route
+  //   // which is lazy-loaded when the route is visited.
+  //   component: () => import("../views/Settings.vue"),
+  // },
+  // {
+  //   path: "/signin",
+  //   name: "SignIn",
+  //   component: SignIn,
+  // },
+  // {
+  //   path: "/callback",
+  //   name: "Callback",
+  //   component: Callback,
+  // },
 ];
 
 const router = new VueRouter({

@@ -4,7 +4,7 @@
       <v-row no-gutters>
         <v-img
           :max-height="'calc(100vh - ' + $vuetify.application.top + 'px)'"
-          src="@/assets/tech-net.jpg"
+          src="@/assets/code.jpg"
         >
           <v-theme-provider dark>
             <v-container fill-height>
@@ -66,22 +66,24 @@
           class="mx-auto title font-weight-light mb-8"
           max-width="720"
         >
-          Rift is the #1 component library for Vue.js and has been in active
-          development since 2016. The goal of the project is to provide users
-          with everything that is needed to build rich and engaging web
-          applications using the Material Design specification. It accomplishes
-          that with a consistent update cycle, Long-term Support (LTS) for
-          previous versions, responsive community engagement, a vast ecosystem
-          of resources and a dedication to quality components.
+          Rift is a multi-purpose Discord bot for all your Politics and War
+          needs! From embassies to tickets to general information, Rift is here
+          to make your life easy!
         </v-responsive>
 
-        <v-avatar class="elevation-12 mb-12" size="128">
-          <v-img src="https://cdn.vuetifyjs.com/images/john.png"></v-img>
+        <v-avatar v-if="false" class="elevation-12 mb-12" size="128">
+          <v-img src="@/assets/rift-logo.png"></v-img>
         </v-avatar>
 
         <div></div>
 
-        <v-btn color="grey" href="https://vuetifyjs.com" outlined large>
+        <v-btn
+          v-if="false"
+          color="grey"
+          href="https://vuetifyjs.com"
+          outlined
+          large
+        >
           <span class="grey--text text--darken-1 font-weight-bold">
             Rift Documentation
           </span>
@@ -135,7 +137,7 @@
       <div class="py-12"></div>
     </section>
 
-    <section id="stats">
+    <section v-if="false" id="stats">
       <v-parallax
         :height="$vuetify.breakpoint.smAndDown ? 700 : 500"
         src="https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
@@ -165,7 +167,7 @@
       </v-parallax>
     </section>
 
-    <section id="blog">
+    <section v-if="false" id="blog">
       <div class="py-12"></div>
 
       <v-container>
@@ -210,7 +212,7 @@
       <div class="py-12"></div>
     </section>
 
-    <v-sheet id="contact" color="#333333" dark tag="section" tile>
+    <v-sheet v-if="false" id="contact" color="#333333" dark tag="section" tile>
       <div class="py-12"></div>
 
       <v-container>
@@ -250,8 +252,16 @@
           </v-row>
         </v-theme-provider>
       </v-container>
-
-      <div class="py-12"></div>
+    </v-sheet>
+    <v-sheet id="credits" color="#333333" dark tag="section" tile>
+      <h3 class="display-1 font-weight-bold mb-3 text-uppercase text-center">
+        Credits
+      </h3>
+      <v-list v-for="credit in credits" :key="credit" color="#333333">
+        <a :href="credit.link">
+          <h4 class="text-center">{{ credit.name }}</h4>
+        </a>
+      </v-list>
     </v-sheet>
   </v-main>
 </template>
@@ -288,24 +298,31 @@ export default Vue.extend({
         },
       ],
 
+      credits: [
+        {
+          link: "https://www.123freevectors.com/",
+          name: "Free Vector",
+        },
+      ],
+
       features: [
         {
           icon: "mdi-account-group-outline",
-          title: "Vibrant Community",
+          title: "Amazing Features",
           text:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto cupiditate sint possimus quidem atque harum excepturi nemo velit tempora! Enim inventore fuga, qui ipsum eveniet facilis obcaecati corrupti asperiores nam",
+            "Packed to the brim with features, Rift is the perfect choice for an easy to use and customizeable Discord bot.",
         },
         {
           icon: "mdi-update",
           title: "Frequent Updates",
           text:
-            "Sed ut elementum justo. Suspendisse non justo enim. Vestibulum cursus mauris dui, a luctus ex blandit. Lorem ipsum dolor sit amet consectetur adipisicing elit. qui ipsum eveniet facilis obcaecati corrupti consectetur adipisicing elit.",
+            "In active development, Rift is constantly improving and being updated!",
         },
         {
           icon: "mdi-shield-outline",
-          title: "Long-term Support",
+          title: "Helpful Support",
           text:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto cupiditate sint possimus quidem atque harum excepturi nemo velit tempora! Enim inventore fuga, qui ipsum eveniet facilis obcaecati corrupti asperiores nam",
+            "Having trouble? Feel free to reach out, we're always happy to help you get set up!",
         },
       ],
 

@@ -20,30 +20,31 @@
         </span>
       </div>
 
-      <v-btn class="ml-8" text color="primary">
+      <v-btn v-if="false" class="ml-8" text color="primary">
         Documentation
       </v-btn>
 
-      <v-btn text color="primary" @click="$router.push('/settings')">
+      <v-btn
+        v-if="false"
+        text
+        color="primary"
+        @click="$router.push('/settings')"
+      >
         Dashboard
       </v-btn>
 
       <v-spacer />
       <v-btn
-        class="ml-3"
+        v-if="false"
+        lass="ml-3"
         color="primary"
-        href="https://get.rift.mrvillage.dev"
         target="_blank"
+        @click="signOut()"
       >
-        Add to Server
-      </v-btn>
-
-      <v-spacer />
-      <v-btn class="ml-3" color="primary" target="_blank" @click="signOut()">
         Sign Out
       </v-btn>
 
-      <v-list-item dark v-if="isSignedIn()">
+      <v-list-item dark v-if="false">
         <v-list-item-avatar>
           <img :src="avatarURL" />
         </v-list-item-avatar>
@@ -60,12 +61,21 @@
         </v-list-item-content>
       </v-list-item>
 
-      <v-btn v-else class="ml-3" color="green darken-1" @click="signIn()">
+      <v-btn v-if="false" class="ml-3" color="green darken-1" @click="signIn()">
         Sign In
+      </v-btn>
+      <v-spacer />
+      <v-btn
+        class="ml-3"
+        color="primary"
+        href="https://getrift.mrvillage.dev"
+        target="_blank"
+      >
+        Add to Server
       </v-btn>
     </v-app-bar>
     <v-navigation-drawer
-      v-if="isSignedIn()"
+      v-if="false"
       :permanent="!['xs', 'xm'].includes($vuetify.breakpoint.name)"
       :temporary="['xs', 'xm'].includes($vuetify.breakpoint.name)"
       width="10"
@@ -97,12 +107,6 @@
         class="title font-weight-light grey--text text--lighten-1 text-center"
       >
         &copy; {{ new Date().getFullYear() }} — Village
-        <div>
-          Website created with
-          <a href="bsnk.dev" target="_blank" style="text-decoration: none"
-            >Bann</a
-          >
-        </div>
       </div>
     </v-footer>
   </v-app>
