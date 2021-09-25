@@ -93,12 +93,12 @@
       <div class="py-12"></div>
     </section>
 
-    <section id="features" class="grey lighten-3">
+    <section id="features" class="grey-background">
       <div class="py-12"></div>
 
       <v-container class="text-center">
-        <h2 class="display-2 font-weight-bold mb-3 black--text">
-          Rift FEATURES
+        <h2 class="display-2 font-weight-bold mb-3">
+          RIFT FEATURES
         </h2>
 
         <v-responsive class="mx-auto mb-12" width="56">
@@ -114,7 +114,7 @@
             cols="12"
             md="4"
           >
-            <v-card class="py-12 px-4" color="grey lighten-5" flat light>
+            <v-card class="py-12 px-4" flat dark>
               <v-theme-provider dark>
                 <div>
                   <v-avatar color="primary" size="88">
@@ -253,11 +253,12 @@
         </v-theme-provider>
       </v-container>
     </v-sheet>
-    <v-sheet id="credits" color="#333333" dark tag="section" tile>
+    <v-sheet id="credits" tag="section" tile>
       <h3 class="display-1 font-weight-bold mb-3 text-uppercase text-center">
         Credits
       </h3>
-      <v-list v-for="credit in credits" :key="credit" color="#333333">
+
+      <v-list v-for="credit in credits" :key="credit">
         <a :href="credit.link">
           <h4 class="text-center">{{ credit.name }}</h4>
         </a>

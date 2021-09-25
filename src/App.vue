@@ -176,4 +176,7 @@ export default Vue.extend({
 .olga {
   font-family: "Olga";
 }
+.grey-background {
+  background: #282828;
+}
 </style>
