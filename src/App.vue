@@ -35,11 +35,19 @@
 
       <v-spacer />
       <v-btn
+        class="ml-3"
+        color="primary"
+        href="https://getrift.mrvillage.dev"
+        target="_blank"
+      >
+        Add to Server
+      </v-btn>
+      <v-btn
         v-if="false"
         lass="ml-3"
         color="primary"
         target="_blank"
-        @click="signOut()"
+        @click="supabase"
       >
         Sign Out
       </v-btn>
@@ -65,14 +73,6 @@
         Sign In
       </v-btn>
       <v-spacer />
-      <v-btn
-        class="ml-3"
-        color="primary"
-        href="https://getrift.mrvillage.dev"
-        target="_blank"
-      >
-        Add to Server
-      </v-btn>
     </v-app-bar>
     <v-navigation-drawer
       v-if="false"
@@ -114,58 +114,37 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { mapGetters } from "vuex";
+import Component from "vue-class-component"
 
-export default Vue.extend({
-  name: "App",
-  created: async function() {
-    console.log(this.supabase.auth.currentUser);
-    console.log("Route Parameters", this.$route.params);
-    if (this.userData === null && this.supabase.auth.user()) {
-      const data = localStorage.getItem("userData");
-      if (data) {
-        this.$store.commit("setUserData", JSON.parse(data));
-      } else {
-        await this.supabase.auth.signOut();
-      }
-    } else if (!this.supabase.auth.user()) {
-      await this.supabase.auth.signOut();
-    }
-  },
-  methods: {
+@Component
+export default class App extends Vue {
     isSignedIn() {
       return !!this.supabase.auth.user();
-    },
+    }
     async signIn() {
       const { user, session, error } = await this.supabase.auth.signIn({
         provider: "discord",
         redirectTo: "http://localhost:8081",
       });
       console.log(user, session, error);
-    },
+    }
     async signOut() {
       await this.supabase.auth.signOut();
-    },
+    }
     logIn() {
       const array = new Uint32Array(1);
       const state = window.crypto.getRandomValues(array).toString();
       localStorage.setItem("discordOAuthState", state);
       window.location.href = `https://discord.com/api/oauth2/authorize?client_id=804833318956302377&redirect_uri=https%3A%2F%2Frift.mrvillage.dev%2Fcallback&response_type=code&scope=identify%20guilds&state=${state}`;
-    },
+    }
     menuClick() {
       this.showAvatar = !this.showAvatar;
       return true;
     },
-  },
-  computed: {
-    ...mapGetters(["supabase", "avatarURL", "userData", "userID", "supabase"]),
-  },
-  data() {
-    return {
-      showAvatar: true,
-    };
-  },
-});
+
+
+    showAvatar= true,
+  }
 </script>
 
 <style>

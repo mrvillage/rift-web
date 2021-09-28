@@ -6,7 +6,6 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    isSignedIn: false,
     isLoading: true,
     supabase: createClient(
       "https://clhiogfbhdkwkomjretd.supabase.co",
@@ -15,23 +14,23 @@ export default new Vuex.Store({
     userData: null,
   },
   getters: {
-    isSignedIn(state: any) {
+    isSignedIn(state) {
       return !!state.supabase.auth.user();
     },
 
-    isLoading(state: any) {
+    isLoading(state) {
       return state.isLoading;
     },
 
-    userData(state: any) {
+    userData(state) {
       return state.userData;
     },
 
-    supabase(state: any) {
+    supabase(state) {
       return state.supabase;
     },
 
-    avatarURL(state: any) {
+    avatarURL(state) {
       if (!state.userData) {
         return null;
       }
@@ -43,22 +42,13 @@ export default new Vuex.Store({
           return `https://cdn.discordapp.com/avatars/${userData.id}/${userData.avatar}.png?size=256`;
         }
       } else {
-        return `https://cdn.discordapp.com/embed/avatars/${
-          userData.discriminator % 5
-        }.png`;
+        return `https://cdn.discordapp.com/embed/avatars/${userData.discriminator %
+          5}.png`;
       }
     },
   },
   mutations: {
-    setIsSignedIn(state: any, isSignedIn: boolean) {
-      state.isSignedIn = isSignedIn;
-    },
-
-    setIsLoading(state: any, isLoading: boolean) {
-      state.isLoading = isLoading;
-    },
-
-    setUserData(state: any, data: object) {
+    setUserData(state: state, data: object) {
       localStorage.setItem("userData", JSON.stringify(data));
       state.userData = data;
     },

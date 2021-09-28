@@ -269,74 +269,67 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { mapGetters } from "vuex";
+import Component from "vue-class-component";
 
-export default Vue.extend({
-  name: "Landing",
-  data() {
-    return {
-      articles: [
-        {
-          src:
-            "https://images.unsplash.com/photo-1423784346385-c1d4dac9893a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
-          title: "Mobile first & Responsive",
-          text:
-            "Phasellus lorem enim, luctus ut velit eget, convallis egestas eros. Sed ornare ligula eget tortor tempor, quis porta tellus dictum.",
-        },
-        {
-          src:
-            "https://images.unsplash.com/photo-1475938476802-32a7e851dad1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
-          title: "Think outside the box",
-          text:
-            "Nam ut leo ipsum. Maecenas pretium aliquam feugiat. Aenean vel tempor est, vitae tincidunt risus. Sed sodales vestibulum nibh.",
-        },
-        {
-          src:
-            "https://images.unsplash.com/photo-1416339442236-8ceb164046f8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1892&q=80",
-          title: "Small changes, big difference",
-          text:
-            "Vestibulum in dictum velit, in rhoncus nibh. Maecenas neque libero, interdum a dignissim in, aliquet vitae lectus. Phasellus lorem enim, luctus ut velit eget.",
-        },
-      ],
+@Component
+export default class Landing extends Vue {
+  articles = [
+    {
+      src:
+        "https://images.unsplash.com/photo-1423784346385-c1d4dac9893a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+      title: "Mobile first & Responsive",
+      text:
+        "Phasellus lorem enim, luctus ut velit eget, convallis egestas eros. Sed ornare ligula eget tortor tempor, quis porta tellus dictum.",
+    },
+    {
+      src:
+        "https://images.unsplash.com/photo-1475938476802-32a7e851dad1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+      title: "Think outside the box",
+      text:
+        "Nam ut leo ipsum. Maecenas pretium aliquam feugiat. Aenean vel tempor est, vitae tincidunt risus. Sed sodales vestibulum nibh.",
+    },
+    {
+      src:
+        "https://images.unsplash.com/photo-1416339442236-8ceb164046f8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1892&q=80",
+      title: "Small changes, big difference",
+      text:
+        "Vestibulum in dictum velit, in rhoncus nibh. Maecenas neque libero, interdum a dignissim in, aliquet vitae lectus. Phasellus lorem enim, luctus ut velit eget.",
+    },
+  ];
 
-      credits: [
-        {
-          link: "https://www.123freevectors.com/",
-          name: "Free Vector",
-        },
-      ],
+  credits = [
+    {
+      link: "https://www.123freevectors.com/",
+      name: "Free Vector",
+    },
+  ];
 
-      features: [
-        {
-          icon: "mdi-account-group-outline",
-          title: "Amazing Features",
-          text:
-            "Packed to the brim with features, Rift is the perfect choice for an easy to use and customizeable Discord bot.",
-        },
-        {
-          icon: "mdi-update",
-          title: "Frequent Updates",
-          text:
-            "In active development, Rift is constantly improving and being updated!",
-        },
-        {
-          icon: "mdi-shield-outline",
-          title: "Helpful Support",
-          text:
-            "Having trouble? Feel free to reach out, we're always happy to help you get set up!",
-        },
-      ],
+  features = [
+    {
+      icon: "mdi-account-group-outline",
+      title: "Amazing Features",
+      text:
+        "Packed to the brim with features, Rift is the perfect choice for an easy to use and customizeable Discord bot.",
+    },
+    {
+      icon: "mdi-update",
+      title: "Frequent Updates",
+      text:
+        "In active development, Rift is constantly improving and being updated!",
+    },
+    {
+      icon: "mdi-shield-outline",
+      title: "Helpful Support",
+      text:
+        "Having trouble? Feel free to reach out, we're always happy to help you get set up!",
+    },
+  ];
 
-      stats: [
-        ["24k", "Github Stars"],
-        ["330+", "Releases"],
-        ["1m", "Downloads/mo"],
-        ["5m", "Total Downloads"],
-      ],
-    };
-  },
-  computed: {
-    ...mapGetters(["supabase"]),
-  },
-});
+  stats = [
+    ["24k", "Github Stars"],
+    ["330+", "Releases"],
+    ["1m", "Downloads/mo"],
+    ["5m", "Total Downloads"],
+  ];
+}
 </script>
