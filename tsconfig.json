@@ -12,10 +12,12 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "outDir": "out",
     "types": [
       "webpack-env",
-      "node"
+      "node",
+      "vue-router",
+      "vuex",
+      "vuetify",
     ],
     "paths": {
       "@/*": [
