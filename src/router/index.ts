@@ -1,10 +1,17 @@
 import Vue from "vue";
-import VueRouter, { RouteConfig } from "vue-router";
+import VueRouter, { RouteConfig, Route, NavigationGuardNext } from "vue-router";
 import Landing from "../views/Landing.vue";
-import SignIn from "../views/SignIn.vue";
-import Callback from "../views/Callback.vue";
+import store from "../store";
 
 Vue.use(VueRouter);
+
+const restrictedCheck = (to: Route, from: Route, next: NavigationGuardNext) => {
+  if (store.getters.supabase.auth.user()) {
+    next();
+  } else {
+    router.replace({ name: "Landing", params: { errorCode: "103" } });
+  }
+};
 
 const routes: Array<RouteConfig> = [
   {
@@ -12,24 +19,23 @@ const routes: Array<RouteConfig> = [
     name: "Landing",
     component: Landing,
   },
-  // {
-  //   path: "/settings",
-  //   name: "Settings",
-  //   // route level code-splitting
-  //   // this generates a separate chunk (about.[hash].js) for this route
-  //   // which is lazy-loaded when the route is visited.
-  //   component: () => import("../views/Settings.vue"),
-  // },
-  // {
-  //   path: "/signin",
-  //   name: "SignIn",
-  //   component: SignIn,
-  // },
-  // {
-  //   path: "/callback",
-  //   name: "Callback",
-  //   component: Callback,
-  // },
+  {
+    path: "/about",
+    name: "About",
+    component: () => import("../views/About.vue"),
+  },
+  {
+    path: "/settings",
+    name: "Settings",
+    component: () => import("../views/Settings.vue"),
+    beforeEnter: restrictedCheck,
+  },
+  {
+    path: "/dashboard",
+    name: "Dashboard",
+    component: () => import("../views/Dashboard.vue"),
+    beforeEnter: restrictedCheck,
+  },
 ];
 
 const router = new VueRouter({
