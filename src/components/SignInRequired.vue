@@ -1,9 +1,9 @@
 <template>
   <div class="text-center ma-2">
-    <v-snackbar v-model="show" :color="color" v-if="showing">
+    <v-snackbar v-model="show" :color="color" v-if="show">
       You need to sign in to view that page!
       <template v-slot:action="{ attrs }">
-        <v-btn color="black" text v-bind="attrs" @click="showing = false">
+        <v-btn color="black" text v-bind="attrs" @click="show = false">
           Close
         </v-btn>
       </template>

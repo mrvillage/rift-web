@@ -19,11 +19,11 @@
           v-if="!user"
         />
 
-        <span class="olga" v-if="!user">
+        <!-- <span class="olga" v-if="!user">
           <h3 class="olga">
             Rift
           </h3>
-        </span>
+        </span> -->
       </div>
 
       <v-spacer />
@@ -94,8 +94,8 @@ export default class App extends Vue {
       },
       {
         redirectTo: "http://localhost:8080",
-        // redirectTo: "https://rift"
-        scopes: "identify guilds",
+        // redirectTo: "https://rift.mrvillage.dev"
+        scopes: "guilds",
       }
     );
   }

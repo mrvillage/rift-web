@@ -258,7 +258,7 @@
         Credits
       </h3>
 
-      <v-list v-for="credit in credits" :key="credit">
+      <v-list v-for="credit in credits" :key="credit.name">
         <a :href="credit.link">
           <h4 class="text-center">{{ credit.name }}</h4>
         </a>

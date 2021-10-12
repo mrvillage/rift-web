@@ -26,7 +26,7 @@
     <v-list-item-group :mandatory="selectedItem !== -1" v-model="selectedItem">
       <v-list dense nav shaped>
         <v-list-item
-          v-for="item in items"
+          v-for="item in sideBarItems"
           :key="item.name"
           :disabled="disabled"
           @click="goto(item.path)"
@@ -41,13 +41,25 @@
         </v-list-item>
       </v-list>
     </v-list-item-group>
+    <template v-slot:append>
+      <div>
+        <v-select
+          class="mx-2"
+          :items="guildItems"
+          :label="selectMessage"
+          dense
+          solo
+          @change="guildSelected"
+        />
+      </div>
+    </template>
   </v-navigation-drawer>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Watch, Vue } from "vue-property-decorator";
 import { SupabaseClient, User } from "@supabase/supabase-js";
-import { SideBarItem } from "../types";
+import { Guild, GuildItem, SideBarItem } from "../types";
 
 @Component
 export default class SideBar extends Vue {
@@ -59,14 +71,42 @@ export default class SideBar extends Vue {
     return this.supabase.auth.user();
   }
 
+  get selectMessage(): string {
+    if (this.currentGuild === null) {
+      return "Select a server";
+    } else {
+      return this.currentGuild.name;
+    }
+  }
+
+  get currentGuild(): Guild | null {
+    return this.$store.getters.currentGuild;
+  }
+
+  get guilds(): Array<Guild> {
+    return this.$store.getters.guilds;
+  }
+
+  get guildItems(): Array<GuildItem> {
+    const items = [];
+    for (let guild of this.guilds) {
+      items.push({ text: guild.name, value: guild.id });
+    }
+    return items;
+  }
+
   isShowing = true;
   selectedItem = -1;
 
-  items: SideBarItem[] = [
+  sideBarItems: SideBarItem[] = [
     { name: "Dashboard", icon: "mdi-view-dashboard", path: "/dashboard" },
     { name: "Profile", icon: "mdi-account", path: "/profile" },
     { name: "Settings", icon: "mdi-cog", path: "/settings" },
   ];
+
+  guildSelected(id: number): void {
+    this.$store.commit("setCurrentGuildID", id);
+  }
 
   async goto(path: string): Promise<void> {
     if (this.$route.path != path) {
@@ -81,7 +121,7 @@ export default class SideBar extends Vue {
     this.isShowing = this.value;
     let option;
     let index;
-    for ([index, option] of Object.entries(this.items)) {
+    for ([index, option] of Object.entries(this.sideBarItems)) {
       if (option.path === this.$route.path) {
         this.selectedItem = parseInt(index);
         break;
@@ -104,7 +144,7 @@ export default class SideBar extends Vue {
   onPathChange(value: string): void {
     let option;
     let index;
-    for ([index, option] of Object.entries(this.items)) {
+    for ([index, option] of Object.entries(this.sideBarItems)) {
       if (option.path === value) {
         this.selectedItem = parseInt(index);
         break;
