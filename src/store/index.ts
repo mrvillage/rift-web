@@ -14,7 +14,7 @@ export interface State {
 export default new Vuex.Store({
   state: {
     supabase: createClient(
-      "https://db.rift.mrvillage.dev",
+      "https://supabase.rift.mrvillage.dev",
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyMzAzMjQ0MCwiZXhwIjoxOTM4NjA4NDQwfQ.Y77HcMFE1RoMsAcEgNd8iUpOaqkJ3-JBKSoU9U9ZUJ0"
     ),
     currentGuildID: null,
