@@ -1,17 +1,17 @@
 <template>
   <div>
     <router-view />
-    <guild-dashboard-select v-if="userLinked" class="bottom-right" />
+    <guild-dashboard-dialog v-if="userLinked" class="bottom-right" />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import GuildDashboardSelect from "@/components/GuildDashboardSelect.vue";
+import GuildDashboardDialog from "@/components/GuildDashboardDialog.vue";
 
 @Component({
   components: {
-    GuildDashboardSelect,
+    GuildDashboardDialog,
   },
 })
 export default class GuildDashboard extends Vue {

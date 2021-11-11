@@ -43,7 +43,7 @@ import { Component, Vue } from "vue-property-decorator";
 import { Guild, GuildItem } from "@/types";
 
 @Component
-export default class GuildDashboardSelect extends Vue {
+export default class GuildDashboardDialog extends Vue {
   get selectMessage(): string {
     if (this.currentGuild === null) {
       return "Select a server";
