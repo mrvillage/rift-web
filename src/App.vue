@@ -105,7 +105,6 @@ export default class App extends Vue {
       {
         redirectTo: "http://localhost:8080",
         // redirectTo: "https://rift.mrvillage.dev"
-        scopes: "guilds",
       }
     );
   }
