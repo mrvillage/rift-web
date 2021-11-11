@@ -3,7 +3,7 @@
     <section id="hero">
       <v-row no-gutters>
         <v-img
-          :max-height="'calc(100vh - ' + $vuetify.application.top + 'px)'"
+          :height="'calc(100vh - ' + $vuetify.application.top + 'px)'"
           src="@/assets/code.jpg"
         >
           <v-theme-provider dark>

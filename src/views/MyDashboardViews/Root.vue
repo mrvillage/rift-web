@@ -1,10 +1,10 @@
 <template>
-  <v-spacer />
+  <v-spacer></v-spacer>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 
 @Component
-export default class Profile extends Vue {}
+export default class MyDashboardRoot extends Vue {}
 </script>

@@ -47,8 +47,17 @@
     <v-main>
       <router-view />
     </v-main>
-    <sign-in-required :show="errorCode === '103'" />
-    <v-footer class="justify-center" color="#292929" height="100">
+
+    <error-snackbar
+      :show="errorCode === '103'"
+      message="You need to sign in to view that page!"
+    />
+    <error-snackbar
+      :show="errorCode === '404'"
+      message="That page doesn't exist!"
+    />
+
+    <v-footer class="justify-center" color="#292929" height="50">
       <div
         class="title font-weight-light grey--text text--lighten-1 text-center"
       >
@@ -63,15 +72,16 @@ import "vuex";
 import "vue-router";
 import "vuetify";
 
-import { Vue, Component } from "vue-property-decorator";
+import { Vue, Component, Watch } from "vue-property-decorator";
 import { SupabaseClient, User } from "@supabase/supabase-js";
-import SideBar from "./components/SideBar.vue";
-import SignInRequired from "./components/SignInRequired.vue";
+import SideBar from "@/components/SideBar.vue";
+import ErrorSnackbar from "@/components/ErrorSnackbar.vue";
+import { Member, DiscordUser, UserLink } from "@/types";
 
 @Component({
   components: {
     SideBar,
-    SignInRequired,
+    ErrorSnackbar,
   },
 })
 export default class App extends Vue {
@@ -102,10 +112,34 @@ export default class App extends Vue {
 
   async signOut(): Promise<void> {
     await this.supabase.auth.signOut();
-    this.$router.push("/");
   }
 
   sideBarOpen = !["xs"].includes(this.$vuetify.breakpoint.name);
+
+  @Watch("user")
+  async onUserChange(): Promise<void> {
+    if (this.user) {
+      const members = await this.supabase
+        .from<Member>("cache_members")
+        .select("id(name), guild(id, name, icon_url, owner_id), permissions")
+        .eq("id", this.user.user_metadata["provider_id"]);
+      const userLink = await this.supabase
+        .from<UserLink>("users")
+        .select("*")
+        .eq("user_id", this.user.user_metadata["provider_id"]);
+      const user = await this.supabase
+        .from<DiscordUser>("cache_users")
+        .select("*")
+        .eq("id", this.user.user_metadata["provider_id"]);
+      this.$store.commit("setMembers", members.data);
+      this.$store.commit("setUserLink", userLink.data ? userLink.data[0] : {});
+      // @ts-expect-error
+      this.$store.commit("setUserData", user.data[0]);
+    } else {
+      this.$router.push("/");
+      this.$store.commit("clearMembers");
+    }
+  }
 }
 </script>
 
