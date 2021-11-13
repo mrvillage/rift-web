@@ -97,6 +97,10 @@ export default class App extends Vue {
     return this.$route.params.errorCode;
   }
 
+  get previousPath(): string {
+    return this.$route.params.previousPath;
+  }
+
   async signIn(): Promise<void> {
     await this.supabase.auth.signIn(
       {
@@ -118,6 +122,11 @@ export default class App extends Vue {
   @Watch("user")
   async onUserChange(): Promise<void> {
     if (this.user) {
+      if (this.errorCode == "103") {
+        this.$router.replace({
+          path: this.previousPath,
+        });
+      }
       const members = await this.supabase
         .from<Member>("cache_members")
         .select("id(name), guild(id, name, icon_url, owner_id), permissions")
