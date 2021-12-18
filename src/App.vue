@@ -27,6 +27,9 @@
       </div>
 
       <v-spacer />
+      <v-btn class="ml-3" color="gray" href="/docs" target="_blank">
+        Documentation
+      </v-btn>
       <v-btn
         class="ml-3"
         color="primary"
