@@ -3,7 +3,6 @@
     <v-app-bar app dark>
       <v-app-bar-nav-icon
         v-if="!!user"
-        light
         @click="sideBarOpen = !sideBarOpen"
       />
       <div class="d-flex align-center" @click="$router.push('/')">
