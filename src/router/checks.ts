@@ -12,4 +12,17 @@ const restrictedCheck = (to: Route, from: Route, next: NavigationGuardNext) => {
   }
 };
 
-export default restrictedCheck;
+const saveCheck = (to: Route, from: Route, next: NavigationGuardNext) => {
+  console.log("TH");
+  next(false);
+  const answer = window.confirm(
+    "Do you really want to leave? you have unsaved changes!"
+  );
+  if (answer) {
+    next();
+  } else {
+    next(false);
+  }
+};
+
+export { restrictedCheck, saveCheck };

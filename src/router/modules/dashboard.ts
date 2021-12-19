@@ -1,4 +1,4 @@
-import restrictedCheck from "@/router/checks";
+import { restrictedCheck } from "@/router/checks";
 export default [
   {
     path: "/dashboard/me",

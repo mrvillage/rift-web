@@ -58,7 +58,7 @@ const mutations = {
   },
   setUserLink: (state: MembersState, userLink: UserLink): void => {
     state.userLink = userLink;
-    state.userLinked = !!userLink;
+    state.userLinked = !!userLink.nation_id;
   },
 };
 

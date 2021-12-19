@@ -49,6 +49,7 @@
         >
       </v-card>
     </v-col>
+    <error-snackbar :show="unsavedError" message="You have unsaved changes!" />
   </v-row>
 </template>
 
@@ -59,12 +60,19 @@ import publicKey from "@/publicKey";
 // @ts-expect-error
 import NodeRSA from "node-rsa";
 import { UserLink } from "@/types";
+import { NavigationGuardNext, Route } from "vue-router";
+import ErrorSnackbar from "@/components/ErrorSnackbar.vue";
 
 const rsa = new NodeRSA(publicKey);
 rsa.setOptions({
   encryptionScheme: "pkcs1",
 });
-@Component
+
+@Component({
+  components: {
+    ErrorSnackbar,
+  },
+})
 export default class MyDashboardGeneral extends Vue {
   get supabase(): SupabaseClient {
     return this.$store.getters.supabase;
@@ -82,8 +90,24 @@ export default class MyDashboardGeneral extends Vue {
     return this.$store.getters.getUserLink;
   }
 
+  get saved(): boolean {
+    return this.$store.getters.saved;
+  }
+
+  unsavedError = false;
+
+  beforeRouteLeave(to: Route, from: Route, next: NavigationGuardNext) {
+    if (this.saved) {
+      next();
+    } else {
+      this.unsavedError = false;
+      this.unsavedError = true;
+      next(false);
+    }
+  }
+
   async mounted() {
-    if (!this.userLink.nation_id) {
+    if (!this.userLinked) {
       return;
     }
     const { data } = await this.supabase
@@ -205,7 +229,7 @@ export default class MyDashboardGeneral extends Vue {
 
   @Watch("userLink")
   async onUserChange(): Promise<void> {
-    if (this.user) {
+    if (this.user && this.userLinked) {
       const { data } = await this.supabase
         .from("credentials")
         .select("permissions")

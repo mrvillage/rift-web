@@ -5,7 +5,6 @@ import store from "../store";
 import modules from "@/router/modules";
 
 Vue.use(VueRouter);
-import restrictedCheck from "@/router/checks";
 
 const routes: Array<RouteConfig> = [
   {

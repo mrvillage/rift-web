@@ -16,6 +16,10 @@ export interface MembersState {
   userLinked: boolean;
 }
 
+export interface SaveState {
+  saved: boolean;
+}
+
 export interface SideBarItem {
   name: string;
   icon: string;

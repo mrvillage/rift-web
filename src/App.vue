@@ -120,6 +120,10 @@ export default class App extends Vue {
     await this.supabase.auth.signOut();
   }
 
+  mounted() {
+    console.log(this.$route.params);
+  }
+
   sideBarOpen = !["xs"].includes(this.$vuetify.breakpoint.name);
 
   @Watch("user")
@@ -147,7 +151,9 @@ export default class App extends Vue {
       // @ts-expect-error
       this.$store.commit("setUserData", user.data[0]);
     } else {
-      this.$router.push("/");
+      if (this.$route.path != "/") {
+        this.$router.push("/");
+      }
       this.$store.commit("clearMembers");
     }
   }

@@ -1,9 +1,9 @@
 <template>
   <div class="text-center ma-2">
-    <v-snackbar v-model="show" :color="color" v-if="show">
+    <v-snackbar v-model="show" :color="color" v-if="showing">
       {{ message }}
       <template v-slot:action="{ attrs }">
-        <v-btn color="black" text v-bind="attrs" @click="show = false">
+        <v-btn color="black" text v-bind="attrs" @click="showing = false">
           Close
         </v-btn>
       </template>
@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Prop, Watch, Vue } from "vue-property-decorator";
 
 @Component
 export default class ErrorSnackbar extends Vue {
@@ -21,6 +21,18 @@ export default class ErrorSnackbar extends Vue {
   @Prop(Boolean) show!: boolean;
   @Prop(String) message!: string;
 
-  showing = this.show;
+  isShowing = this.show;
+
+  get showing(): boolean {
+    return this.isShowing;
+  }
+
+  set showing(param: boolean) {
+    this.isShowing = param;
+  }
+  @Watch("show")
+  onShowChange(value: boolean) {
+    this.showing = value;
+  }
 }
 </script>
