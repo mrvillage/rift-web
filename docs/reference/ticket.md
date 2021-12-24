@@ -18,16 +18,11 @@ Open a ticket with the provided configuration.
 
 - `config` : {{ $var.ticketConfigArgument }}
 
-## `/ticket config`
-
-The ticket config command group provides a set of commands for dealing
-with ticket configurations.
-
-### `/ticket config create`
+## `/ticket config create`
 
 Creates a ticket configuration.
 
-#### Parameters
+### Parameters
 
 - `start` : The starting message for when a ticket is created.
 - `category` : {{ $var.categoryChannelArgument }}
@@ -35,6 +30,6 @@ Creates a ticket configuration.
 - `mentions` : A space separated list of user and roles
   to mention when a ticket is created.
 
-### `/ticket config list`
+## `/ticket config list`
 
 List all ticket configurations in the server.

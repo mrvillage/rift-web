@@ -10,29 +10,24 @@ Open a embassy with the provided configuration.
 
 - `config` : {{ $var.embassyConfigArgument }}
 
-## `/embassy config`
-
-The embassy config command group provides a set of commands for dealing
-with embassy configurations.
-
-### `/embassy config create`
+## `/embassy config create`
 
 Creates a embassy configuration.
 
-#### Parameters
+### Parameters
 
 - `start` : The starting message for when a embassy is created.
 - `category` : {{ $var.categoryChannelArgument }}
 
-### `/embassy config list`
+## `/embassy config list`
 
 List all embassy configurations in the server.
 
-### `/embassy config claim`
+## `/embassy config claim`
 
 Claim an embassy for an alliance in a specific embassy configuration.
 
-#### Parameters
+### Parameters
 
 - `config` : {{ $var.embassyConfigArgument }}
 - `alliance` : {{ $var.allianceArgument }}
