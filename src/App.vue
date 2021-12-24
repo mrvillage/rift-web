@@ -60,7 +60,7 @@
       <div
         class="title font-weight-light grey--text text--lighten-1 text-center"
       >
-        &copy; {{ new Date().getFullYear() }} — Village
+        &copy; {{ new Date().getFullYear() }} — Village & Bann
       </div>
     </v-footer>
   </v-app>
