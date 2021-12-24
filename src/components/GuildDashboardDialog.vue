@@ -7,8 +7,21 @@
       @click:outside="close"
     >
       <template v-slot:activator="{ on, attrs }">
-        <v-btn color="primary" dark v-bind="attrs" v-on="on">
-          Select a server
+        <v-btn 
+          color="primary" 
+          dark 
+          v-bind="attrs" 
+          v-on="on"
+        >
+          <template v-if="currentGuildID">
+            {{ currentGuild.name }}
+          </template>
+          <template v-else>
+            Select a server
+          </template>
+          <v-icon>
+            mdi-chevron-down
+          </v-icon>
         </v-btn>
       </template>
       <v-card>
@@ -29,7 +42,7 @@
           <v-btn color="blue darken-1" text @click="close">
             Close
           </v-btn>
-          <v-btn color="blue darken-1" text @click="guildSelected">
+          <v-btn color="blue darken-1" text @click="guildSelected(radioModel)">
             Save
           </v-btn>
         </v-card-actions>
@@ -44,6 +57,9 @@ import { Guild, GuildItem } from "@/types";
 
 @Component
 export default class GuildDashboardDialog extends Vue {
+  dialog = false;
+  radioModel = 0;
+
   get selectMessage(): string {
     if (this.currentGuild === null) {
       return "Select a server";
@@ -79,11 +95,7 @@ export default class GuildDashboardDialog extends Vue {
 
   guildSelected(id: number): void {
     this.dialog = false;
-    this.$store.commit("setCurrentGuildID", this.radioModel);
+    this.$store.commit("setCurrentGuildID", id);
   }
-
-  dialog = false;
-
-  radioModel = 0;
 }
 </script>
