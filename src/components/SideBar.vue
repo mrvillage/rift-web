@@ -20,7 +20,7 @@
               {{ userData.name }}#{{ userData.discriminator }}
             </v-list-item-title>
             <v-list-item-subtitle>
-              Nation ID: {{ userLink ? userLink.nation_id : "None" }}
+              Nation ID: {{ userLink ? userLink.nation : "None" }}
             </v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>

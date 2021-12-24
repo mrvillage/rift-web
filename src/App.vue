@@ -1,10 +1,7 @@
 <template>
   <v-app>
     <v-app-bar app dark>
-      <v-app-bar-nav-icon
-        v-if="!!user"
-        @click="sideBarOpen = !sideBarOpen"
-      />
+      <v-app-bar-nav-icon v-if="!!user" @click="sideBarOpen = !sideBarOpen" />
       <div class="d-flex align-center" @click="$router.push('/')">
         <!-- Rift Logo goes Here -->
 
@@ -140,7 +137,7 @@ export default class App extends Vue {
       const userLink = await this.supabase
         .from<UserLink>("users")
         .select("*")
-        .eq("user_id", this.user.user_metadata["provider_id"]);
+        .eq("user_", this.user.user_metadata["provider_id"]);
       const user = await this.supabase
         .from<DiscordUser>("cache_users")
         .select("*")

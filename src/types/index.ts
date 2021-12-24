@@ -58,7 +58,7 @@ export interface DiscordUser {
 }
 
 export interface UserLink {
-  user_id: number;
-  nation_id: number;
+  user_: number;
+  nation: number;
   uuid: string;
 }

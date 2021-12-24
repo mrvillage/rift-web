@@ -113,7 +113,7 @@ export default class MyDashboardGeneral extends Vue {
     const { data } = await this.supabase
       .from("credentials")
       .select("permissions")
-      .eq("nation", this.userLink.nation_id);
+      .eq("nation", this.userLink.nation);
     if (data?.length) {
       this.credentialsPermissions = data[0].permissions;
     } else {
@@ -203,7 +203,7 @@ export default class MyDashboardGeneral extends Vue {
       await this.supabase
         .from("credentials")
         .upsert(
-          { ...insertData, nation: this.userLink.nation_id },
+          { ...insertData, nation: this.userLink.nation },
           { onConflict: "nation", returning: "minimal" }
         );
       this.credentialsSaved = true;
@@ -214,7 +214,7 @@ export default class MyDashboardGeneral extends Vue {
     await this.supabase.from("credentials").upsert(
       {
         permissions: this.credentialsPermissions,
-        nation: this.userLink.nation_id,
+        nation: this.userLink.nation,
       },
       { onConflict: "nation", returning: "minimal" }
     );
@@ -233,7 +233,7 @@ export default class MyDashboardGeneral extends Vue {
       const { data } = await this.supabase
         .from("credentials")
         .select("permissions")
-        .eq("nation", this.userLink.nation_id);
+        .eq("nation", this.userLink.nation);
       if (data?.length) {
         this.credentialsPermissions = data[0].permissions;
       } else {
