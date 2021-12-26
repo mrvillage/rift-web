@@ -1,10 +1,15 @@
-const { description } = require("../../package");
+import { defineConfig4CustomTheme, DefaultThemeConfig } from "@vuepress/types";
 
-module.exports = {
+interface ThemeConfig extends DefaultThemeConfig {
+  overrideTheme: string;
+}
+
+export default defineConfig4CustomTheme<ThemeConfig>({
   base: "/docs/",
   dest: "dist/docs",
   title: "Rift - Documentation",
-  description: description,
+  description:
+    "Rift is an all-in-one Discord utility and management bot for Politics and War. Check it out!",
   head: [
     ["meta", { name: "theme-color", content: "#be18c7" }],
     ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
@@ -93,7 +98,7 @@ module.exports = {
         {
           title: "Topics",
           collapsable: false,
-          children: [""],
+          children: ["", "conditions", "menus", "subscriptions"],
         },
       ],
     },
@@ -144,7 +149,7 @@ module.exports = {
             "The number of targets to offset the results by. Defaults to 0.",
           targetFindAttackArgument:
             "Whether to find nations to attack the nation provided instead of nations for the nation provided to attack. Defaults to false.",
-          rolesArgument: "The role ID of the role to use.",
+          rolesRoleArgument: "The role ID of the role to use.",
           rolesNameArgument: "The name of the role.",
           rolesRankArgument:
             "The rank of the role, determines its position in the hierarchy.",
@@ -184,4 +189,4 @@ module.exports = {
       },
     ],
   ],
-};
+});

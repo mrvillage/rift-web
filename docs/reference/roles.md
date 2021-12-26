@@ -23,7 +23,7 @@ Delete an alliance role.
 
 ### Parameters
 
-- `role` : {{ $var.rolesArgument }}
+- `role` : {{ $var.rolesRoleArgument }}
 
 ## `/roles list`
 
@@ -39,7 +39,7 @@ Display information about a role.
 
 ### Parameters
 
-- `role` : {{ $var.rolesArgument }}
+- `role` : {{ $var.rolesRoleArgument }}
 
 ## `/roles edit`
 
@@ -47,7 +47,7 @@ Edit an alliance role.
 
 ### Parameters
 
-- `role` : {{ $var.rolesArgument }}
+- `role` : {{ $var.rolesRoleArgument }}
 - `name` : {{ $var.rolesNameArgument }}
 - `rank` : {{ $var.rolesRankArgument }}
 - `description`: {{ $var.rolesDescriptionArgument }}
@@ -59,7 +59,7 @@ Adds a member to an alliance role.
 
 ### Parameters
 
-- `role` : {{ $var.rolesArgument }}
+- `role` : {{ $var.rolesRoleArgument }}
 - `member` : {{ $var.memberOrUserArgument }}
 
 ## `/roles remove-member`
@@ -68,7 +68,7 @@ Removes a member from an alliance role.
 
 ### Parameters
 
-- `role` : {{ $var.rolesArgument }}
+- `role` : {{ $var.rolesRoleArgument }}
 - `member` : {{ $var.memberOrUserArgument }}
 
 ## `/roles summary`
