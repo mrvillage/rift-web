@@ -20,7 +20,7 @@ buttons support the following actions:
 
 Check out the tutorial on making a menu [here](/guilds/my-first-menu.md)!
 
-## How do I buttons to a menu?
+## How do I add buttons to a menu?
 
 When creating a menu you need to send a series of followup messages containing
 menu item information. Currently, the only supported menu item type is a
