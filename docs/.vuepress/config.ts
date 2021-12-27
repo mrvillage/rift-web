@@ -98,7 +98,14 @@ export default defineConfig4CustomTheme<ThemeConfig>({
         {
           title: "Topics",
           collapsable: false,
-          children: ["", "conditions", "menus", "subscriptions"],
+          children: [
+            "",
+            "conditions",
+            "credentials",
+            "menus",
+            "roles",
+            "subscriptions",
+          ],
         },
       ],
     },
