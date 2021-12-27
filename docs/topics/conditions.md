@@ -94,7 +94,10 @@ The following define all the attributes available on the objects passed into con
 ### `nation`
 
 - `id` : number - The nation's ID
-- `alliance` : alliance - The nation's alliance
+- `alliance` : alliance - The nation's [alliance](#alliance), can get further
+  attributes with a `.` then the attribute name, see [alliance](#alliance) below
+  for attributes; this attribute does nothing on it's own, another must be used
+  with the `.`
 - `alliance_position` : text or number - The nation's alliance position, can be
   any of the following names of IDs:
   - None - 0
