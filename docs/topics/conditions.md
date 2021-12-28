@@ -83,9 +83,10 @@ Example: `nation.alliance.id ^^ [1, 2, 3]`
 
 ## Examples
 
-- `nation.alliance.id == 1 && nation.alliance_position >= "Member" && (nation.score >= 3000 ?? nation.soldiers <= 100000)`
-- `nation.v_mode == 0 && nation.beige_turns == 0 && nation.defensive_wars << 3`
-- `alliance.rank <= 50 && alliance.member_count >= 10 && alliance.member_count <= 20`
+| Condition                                                                                                              | Description                                                                                                                                                                                                                                   |
+| ---------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| nation.alliance.id == 1 && nation.alliance_position >= "Member" && (nation.score >= 3000 ?? nation.soldiers <= 100000) | The nation's alliance ID must be equal to 1 and the nation's alliance position must be greater than or equal to Member and either the nation's score must be greater than 3000 or the nation's soldiers must be less than or equal to 100000. | nation.v_mode == 0 && nation.beige_turns == 0 && nation.defensive_wars << 3 |  |
+| alliance.rank <= 50 && alliance.member_count >= 10 && alliance.member_count <= 20                                      | The alliance's rank must be less than or equal to 50 and the alliance's member account must be greater than 10 and the alliance's member count must be less than 20.                                                                          |
 
 ## Objects
 

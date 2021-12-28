@@ -105,6 +105,7 @@ export default defineConfig4CustomTheme<ThemeConfig>({
             "menus",
             "roles",
             "subscriptions",
+            "targets",
           ],
         },
       ],
