@@ -2,6 +2,7 @@ export interface QuickSuggestionI {
   title: string;
   description: string;
   condition: (guildSettings: GuildSettingsI) => boolean;
+  actionPath: string;
 }
 
 export interface GuildSettingsI {
