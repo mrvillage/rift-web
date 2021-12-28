@@ -17,16 +17,19 @@ targets to specific alliances, their score, military, or
 
 ### Examples
 
-| Condition                                       | Description                                                                                    |
-| ----------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `nation.alliance.id == 1`                       | The nation's alliance ID must be equal to 1.                                                   |
-| `nation.beige_turns == 0 && nation.v_mode == 0` | The number of beige turns the nation has is equal to 0 and the nation is not in Vacation Mode. |
+| Condition                                                                     | Description                                                                                                                     |
+| ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `nation.alliance.id == 1`                                                     | The nation's alliance ID must be equal to 1.                                                                                    |
+| `nation.beige_turns == 0 && nation.v_mode == 0`                               | The number of beige turns the nation has is equal to 0 and the nation is not in Vacation Mode.                                  |
+| `nation.beige_turns == 0 && nation.v_mode == 0 && nation.defensive_wars << 3` | The number of beige turns the nation has is equal to 0, the nation is not in Vacation Mode, and has less than 3 defensive wars. |
 
 ### Best practices
 
 - Always use `nation.v_mode == 0` to make sure targets are not in Vacation Mode.
 - `nation.beige_turns == 0` is a good condition to use to make sure targets are not
   in beige, which in almost all cases is very useful.
+- `nation.defensive_wars << 3` is a good condition to use to make sure targets are
+  not in a defensive war meaning they currently have available slots.
 - `nation.alliance.id != <your alliance id>` is a good condition to use to make sure
   targets are not in your alliance.
 
@@ -57,3 +60,10 @@ True for members of your alliance and allies makes finding attackers a lot easie
   or in your alliance or one of your allies.
 - Set the default attack conditions to only include you and your allies, that way
   it's really easy to search for attackers or counters.
+
+::: tip
+
+To set multiple valid alliances or values for an attribute you can use a list of items
+with the `^^` operator instead of `==` or similar. For example,
+`nation.alliance.id ^^ [1, 2, 3]` will only evaluate to True if the nation's alliance ID
+is equal to 1, 2, or 3.
