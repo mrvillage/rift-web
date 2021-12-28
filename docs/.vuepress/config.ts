@@ -5,7 +5,7 @@ interface ThemeConfig extends DefaultThemeConfig {
 }
 
 export default defineConfig4CustomTheme<ThemeConfig>({
-  dest: "docs/.vuepress/dist",
+  dest: ".vuepress/dist",
   title: "Rift - Documentation",
   description:
     "Rift is an all-in-one Discord utility and management bot for Politics and War. Check it out!",
