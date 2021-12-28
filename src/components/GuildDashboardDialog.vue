@@ -88,6 +88,10 @@ export default class GuildDashboardDialog extends Vue {
     return items;
   }
 
+  open() {
+    this.dialog = true;
+  }
+
   close() {
     this.dialog = false;
     this.radioModel = this.currentGuildID;
