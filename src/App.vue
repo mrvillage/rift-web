@@ -23,7 +23,12 @@
       </div>
 
       <v-spacer />
-      <v-btn class="ml-3" color="gray" href="/docs" target="_blank">
+      <v-btn
+        class="ml-3"
+        color="gray"
+        href="https://docs.rift.mrvillage.dev"
+        target="_blank"
+      >
         Documentation
       </v-btn>
       <v-btn
