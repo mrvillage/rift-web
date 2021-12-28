@@ -8,6 +8,7 @@
       </div>
       <v-scroll-x-transition
         leave-absolute
+        mode="out-in"
       >
         <template v-if="currentGuild">
           <router-view />
@@ -42,6 +43,7 @@
 import { Component, Vue } from "vue-property-decorator";
 import GuildDashboardDialog from "@/components/GuildDashboardDialog.vue";
 import { Guild } from "@/types";
+import "@/styles/page.css";
 
 @Component({
   components: {
