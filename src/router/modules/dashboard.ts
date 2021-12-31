@@ -30,6 +30,13 @@ export default [
         path: "settings",
         name: "Settings - Guild Dashboard",
         component: () => import("@/views/GuildDashboardViews/SettingsContainer.vue"),
+        children: [
+          {
+            path: "general",
+            name: "General - Guild Dashboard Settings",
+            component: () => import("@/views/GuildDashboardViews/Settings/General.vue"),
+          },
+        ]
       },
     ],
   },
