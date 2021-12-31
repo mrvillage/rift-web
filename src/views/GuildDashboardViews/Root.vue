@@ -69,14 +69,14 @@ export default class GuildDashboardRoot extends Vue {
     title: 'Lorem ipsum dolor sit amet',
     description: 'Cupidatat anim commodo aliqua dolor labore proident ex amet ullamco. Sint irure minim exercitation magna ad magna cillum Lorem aliqua amet do. Id nisi voluptate occaecat reprehenderit velit proident qui.',
     condition: () => true,
-    actionPath: '/dashboard/server/settings',
+    actionPath: '/dashboard/server/settings/general',
   }, 3);
 
   settingMenuItems: SettingsMenuItemI[] = this.timesAmount(
     {
       name: 'Lorem ipsum dolor sit amet',
       icon: 'mdi-cog',
-      path: '',
+      path: 'general',
     },
     9
   )
