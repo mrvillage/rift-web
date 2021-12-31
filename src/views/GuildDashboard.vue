@@ -14,17 +14,17 @@
           <router-view />
         </template>
         <template v-else>
-          <div class="select-a-guild-placeholder">
+          <div class="select-a-guild-placeholder d-flex flex-column">
             <h3 class="grey--text text--lighten-2 mt-n4">
               Guild Dashboard
             </h3>
-            <h4 class="grey--text text--lighten-1 mr-4 ml-4 mt-4">
+            <h4 class="grey--text text--lighten-1 mr-2 ml-2 mt-4 mb-2">
               This is where you can setup various features to improve your server experience.
               Select a guild to get started.
             </h4>
             <v-btn
               large
-              class="mt-6"
+              class="ma-auto"
               color="primary"
               depressed
               @click="$refs.selectDialog.open()"
@@ -72,6 +72,8 @@ export default class GuildDashboard extends Vue {
   border-radius: 20px;
   border: thin solid hsla(0,0%,100%,.12);
   padding: 40px;
+  min-height: 250px;
+  min-width: 300px;
   height: 25vh;
   width: 25vw;
   margin: auto;
