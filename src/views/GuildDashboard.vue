@@ -74,7 +74,7 @@ export default class GuildDashboard extends Vue {
   padding: 40px;
   min-height: 250px;
   min-width: 300px;
-  height: 25vh;
+  height: 30vh;
   width: 25vw;
   margin: auto;
   margin-top: 20vh;
