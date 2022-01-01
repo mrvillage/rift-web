@@ -81,6 +81,7 @@ import { SupabaseClient, User } from "@supabase/supabase-js";
 import SideBar from "@/components/SideBar.vue";
 import ErrorSnackbar from "@/components/ErrorSnackbar.vue";
 import { Member, DiscordUser, UserLink } from "@/types";
+import Pusher from "pusher-js";
 
 @Component({
   components: {
@@ -121,9 +122,22 @@ export default class App extends Vue {
     await this.supabase.auth.signOut();
   }
 
-  mounted() {
-    console.log(this.$route.params);
+  created() {
+    const pusher = new Pusher("580b3a894ab0d9b253cd", {
+      cluster: "us2",
+      httpPort: 8000,
+      authEndpoint: "http://localhost:8000/graphql/subscriptions/auth",
+    });
+    const channel = pusher.subscribe(
+      "private-lighthouse-lDlILHdJWVK9iN3wgFJjI6NwigYDp8DH-1640843525"
+    );
+    channel.bind("lighthouse-subscription", (data: any) => {
+      console.log(data);
+    });
+    console.log(pusher);
+    console.log(channel);
   }
+  mounted() {}
 
   sideBarOpen = !["xs"].includes(this.$vuetify.breakpoint.name);
 
