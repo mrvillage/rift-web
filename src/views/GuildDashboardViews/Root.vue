@@ -5,7 +5,7 @@
         <div class="overline mb-2 ml-1">
           Quick Suggestions
         </div>
-        <v-row v-for="suggestion of quickSuggestions" :key="suggestion">
+        <v-row v-for="suggestion of quickSuggestions.filter((s) => s.condition()).slice(0, 3)" :key="suggestion">
           <v-col>
             <v-card width="100%">
               <v-card-title>
@@ -65,21 +65,57 @@ import {SettingsMenuItemI, QuickSuggestionI} from '@/types/guildDashboard';
 
 @Component
 export default class GuildDashboardRoot extends Vue {
-  quickSuggestions: QuickSuggestionI[] = this.timesAmount({
-    title: 'Lorem ipsum dolor sit amet',
-    description: 'Cupidatat anim commodo aliqua dolor labore proident ex amet ullamco. Sint irure minim exercitation magna ad magna cillum Lorem aliqua amet do. Id nisi voluptate occaecat reprehenderit velit proident qui.',
+  quickSuggestions: QuickSuggestionI[] = [{
+    title: 'Embrace New Members',
+    description: 'Show your care for new members by welcoming them with a custom and fast-tracking them into welcome-specific channels with roles.',
     condition: () => true,
     actionPath: '/dashboard/server/settings/general',
-  }, 3);
+  },
+  {
+    title: 'Automatic Role Assignment',
+    description: 'Know who-is-who with the help of an advanced role assignment system based on their role in P&W.',
+    condition: () => true,
+    actionPath: '/dashboard/server/settings/general',
+  },
+  {
+    title: 'Create an Embassy',
+    description: 'Create an embassy to welcome diplomats and perform vital foreign affairs for your alliance.',
+    condition: () => true,
+    actionPath: '/dashboard/server/settings/general',
+  }];
 
-  settingMenuItems: SettingsMenuItemI[] = this.timesAmount(
+  settingMenuItems: SettingsMenuItemI[] = [
     {
-      name: 'Lorem ipsum dolor sit amet',
-      icon: 'mdi-cog',
+      name: 'Admin',
+      icon: 'mdi-shield-crown-outline',
       path: 'general',
     },
-    9
-  )
+    {
+      name: 'Welcomes',
+      icon: 'mdi-hand-wave-outline',
+      path: 'general',
+    },
+    {
+      name: 'Roles',
+      icon: 'mdi-account-cog-outline',
+      path: 'general',
+    },
+    {
+      name: 'Menus',
+      icon: 'mdi-menu-open',
+      path: 'general',
+    },
+    {
+      name: 'Tickets',
+      icon: 'mdi-ticket-outline',
+      path: 'general',
+    },
+    {
+      name: 'Embassy',
+      icon: 'mdi-lighthouse',
+      path: 'general',
+    },
+  ];
 
   // for scafolding
   private timesAmount<Type>(i: Type, amount: number): Type[] {
