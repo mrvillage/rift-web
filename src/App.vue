@@ -26,6 +26,14 @@
       <v-btn
         class="ml-3"
         color="gray"
+        href="https://discord.gg/p5bw4zksRr"
+        target="_blank"
+      >
+        Support Server
+      </v-btn>
+      <v-btn
+        class="ml-3"
+        color="gray"
         href="https://docs.rift.mrvillage.dev"
         target="_blank"
       >
