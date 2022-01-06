@@ -26,7 +26,7 @@
       <v-btn
         class="ml-3"
         color="gray"
-        href="https://discord.gg/p5bw4zksRr"
+        href="https://discord.gg/dGeVksJnKg"
         target="_blank"
       >
         Support Server

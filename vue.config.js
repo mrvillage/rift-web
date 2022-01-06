@@ -13,6 +13,9 @@ module.exports = {
     name: "Rift",
     themeColor: "#292929",
     msTileColor: "#292929",
+    workboxOptions: {
+      skipWaiting: true,
+    },
   },
 
   chainWebpack: (config) => {
