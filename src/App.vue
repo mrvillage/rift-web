@@ -119,8 +119,8 @@ export default class App extends Vue {
         provider: "discord",
       },
       {
-        redirectTo: "http://localhost:8080",
-        // redirectTo: "https://rift.mrvillage.dev"
+        // redirectTo: "http://localhost:8080",
+        redirectTo: "https://rift.mrvillage.dev",
       }
     );
   }
