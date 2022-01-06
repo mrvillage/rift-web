@@ -49,6 +49,14 @@
         >
       </v-card>
     </v-col>
+    <v-col cols="12" v-if="!userLinked" align="center">
+      <v-card class="pa-5">
+        <h2 class="pb-5">
+          It doesn't look like you're linked! Head over to Discord and user the
+          /link command then check back here!
+        </h2>
+      </v-card>
+    </v-col>
     <error-snackbar :show="unsavedError" message="You have unsaved changes!" />
   </v-row>
 </template>
@@ -73,7 +81,7 @@ rsa.setOptions({
     ErrorSnackbar,
   },
 })
-export default class MyDashboardGeneral extends Vue {
+export default class MyDashboardCredentials extends Vue {
   get supabase(): SupabaseClient {
     return this.$store.getters.supabase;
   }

@@ -8,12 +8,12 @@ export default [
     children: [
       {
         path: "",
-        component: () => import("@/views/MyDashboardViews/Root.vue"),
+        component: () => import("@/views/MyDashboardViews/Credentials.vue"),
       },
       {
-        path: "general",
-        name: "General - My Dashboard",
-        component: () => import("@/views/MyDashboardViews/General.vue"),
+        path: "credentials",
+        name: "Credentials - My Dashboard",
+        component: () => import("@/views/MyDashboardViews/Credentials.vue"),
       },
     ],
   },

@@ -20,7 +20,7 @@
               {{ userData.name }}#{{ userData.discriminator }}
             </v-list-item-title>
             <v-list-item-subtitle>
-              Nation ID: {{ userLink ? userLink.nation : "None" }}
+              Nation ID: {{ userLink.nation ? userLink.nation : "None" }}
             </v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
@@ -119,25 +119,29 @@ export default class SideBar extends Vue {
       icon: "mdi-view-dashboard",
       path: "/dashboard/me",
       items: [
-        { name: "General", icon: "mdi-cog", path: "/dashboard/me/general" },
+        {
+          name: "Credentials",
+          icon: "mdi-cog",
+          path: "/dashboard/me/credentials",
+        },
       ],
     },
-    {
-      name: "Alliance Dashboard",
-      icon: "mdi-home-group",
-      path: "/dashboard/alliance",
-      items: [
-        // { name: "Menus", icon: "mdi-menu", path: "/dashboard/alliance/menus" },
-      ],
-    },
-    {
-      name: "Server Dashboard",
-      icon: "mdi-account-group",
-      path: "/dashboard/server",
-      items: [
-        // { name: "Menus", icon: "mdi-menu", path: "/dashboard/server/menus" },
-      ],
-    },
+    // {
+    //   name: "Alliance Dashboard",
+    //   icon: "mdi-home-group",
+    //   path: "/dashboard/alliance",
+    //   items: [
+    //     // { name: "Menus", icon: "mdi-menu", path: "/dashboard/alliance/menus" },
+    //   ],
+    // },
+    // {
+    //   name: "Server Dashboard",
+    //   icon: "mdi-account-group",
+    //   path: "/dashboard/server",
+    //   items: [
+    //     // { name: "Menus", icon: "mdi-menu", path: "/dashboard/server/menus" },
+    //   ],
+    // },
   ];
 
   async goto(path: string): Promise<void> {
