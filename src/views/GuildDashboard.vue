@@ -58,6 +58,22 @@ export default class GuildDashboard extends Vue {
   get currentGuild(): Guild | null {
     return this.$store.getters.getCurrentGuild;
   }
+
+  mounted() {
+    this.loadLastSelectedGuild();
+  }
+
+  loadLastSelectedGuild() {
+    const lastSelectedGuild = localStorage.getItem('lastSelectedGuild');
+    if (!lastSelectedGuild) return;
+
+    const guilds = this.$store.getters.getGuilds;
+
+    // make sure its in a guild
+    if (!guilds.find((g: Guild) => String(g.id) === lastSelectedGuild)) return;
+
+    this.$store.commit('setCurrentGuildID', lastSelectedGuild);
+  }
 }
 </script>
 

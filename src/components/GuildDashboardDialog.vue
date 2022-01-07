@@ -97,8 +97,14 @@ export default class GuildDashboardDialog extends Vue {
     this.radioModel = this.currentGuildID;
   }
 
+  saveLastSelectedGuild(id: string | number) {
+    localStorage.setItem('lastSelectedGuild', id.toString());
+  }
+
   guildSelected(id: number): void {
     this.dialog = false;
+
+    this.saveLastSelectedGuild(id);
     this.$store.commit("setCurrentGuildID", id);
   }
 }
