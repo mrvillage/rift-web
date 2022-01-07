@@ -1,8 +1,8 @@
 <template>
   <v-card
     full-width
-    height="60vh"
-    class="ml-2"
+    min-height="60vh"
+    class="ml-2 pb-16"
   >
     <v-card-title>
       <v-btn
@@ -22,7 +22,7 @@
         General Settings
       </span>
     </v-card-title>
-    <div class="ma-4">
+    <div class="ma-4 pa-2 pb-0 pt-0">
       <router-view/>
     </div>
   </v-card>
