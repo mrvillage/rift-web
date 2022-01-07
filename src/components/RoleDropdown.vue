@@ -13,6 +13,7 @@
 </template>
 
 <script lang="ts">
+import { SupabaseClient, User } from '@supabase/supabase-js';
 import {Component, Vue, Prop, Watch} from 'vue-property-decorator';
 
 interface Role {
@@ -28,6 +29,24 @@ interface Role {
 
 @Component
 export default class RoleDropdownComponent extends Vue {
+  get supabase(): SupabaseClient {
+    return this.$store.getters.supabase;
+  }
+
+  get user(): User | null {
+    return this.supabase.auth.user();
+  }
+
+  get userLinked(): boolean {
+    return this.$store.getters.isUserLinked;
+  }
+
+  get currentGuildID(): number  {
+    return this.$store.getters.getCurrentGuild.id;
+  }
+
+  isErroring = false;
+
   roles: Role[] = [
     {
       id: 1,
@@ -54,6 +73,17 @@ export default class RoleDropdownComponent extends Vue {
 
   mounted() {
     if (this.multiple) this.roleOrRolesSelected = [];
+
+    this.loadRoles();
+  }
+
+  async loadRoles() {
+    const rolesReq = await this.supabase.from('cache_roles').select('id,name').eq('guild', this.currentGuildID)
+    if (rolesReq.status === 200) {
+      this.roles = rolesReq.data as Role[];
+    } else {
+      this.isErroring = true;
+    }
   }
 
   @Prop(String) value!: string;
