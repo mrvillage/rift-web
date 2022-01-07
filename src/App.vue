@@ -145,20 +145,23 @@ export default class App extends Vue {
       }
       const members = await this.supabase
         .from<Member>("cache_members")
-        .select("id(name), guild(id, name, icon_url, owner_id), permissions")
+        .select(
+          "id(name), guild(id::text, name, icon_url, owner_id::text), permissions::text"
+        )
         .eq("id", this.user.user_metadata["provider_id"]);
       const userLink = await this.supabase
         .from<UserLink>("users")
-        .select("*")
+        .select("nation, user_::text, uuid")
         .eq("user_", this.user.user_metadata["provider_id"]);
       const user = await this.supabase
         .from<DiscordUser>("cache_users")
-        .select("*")
+        .select("bot, discriminator, display_avatar_url, id::text, name")
         .eq("id", this.user.user_metadata["provider_id"]);
       this.$store.commit("setMembers", members.data);
       this.$store.commit("setUserLink", userLink.data ? userLink.data[0] : {});
       // @ts-expect-error
       this.$store.commit("setUserData", user.data[0]);
+      console.log(members);
     } else {
       if (this.$route.path != "/") {
         this.$router.push("/");
