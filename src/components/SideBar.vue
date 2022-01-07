@@ -126,22 +126,6 @@ export default class SideBar extends Vue {
         },
       ],
     },
-    // {
-    //   name: "Alliance Dashboard",
-    //   icon: "mdi-home-group",
-    //   path: "/dashboard/alliance",
-    //   items: [
-    //     // { name: "Menus", icon: "mdi-menu", path: "/dashboard/alliance/menus" },
-    //   ],
-    // },
-    // {
-    //   name: "Server Dashboard",
-    //   icon: "mdi-account-group",
-    //   path: "/dashboard/server",
-    //   items: [
-    //     // { name: "Menus", icon: "mdi-menu", path: "/dashboard/server/menus" },
-    //   ],
-    // },
   ];
 
   async goto(path: string): Promise<void> {
@@ -177,6 +161,28 @@ export default class SideBar extends Vue {
         break;
       }
       this.selectedItem = -1;
+    }
+
+    // for development
+    if (location.hostname == "localhost") {
+      this.sideBarGroups = this.sideBarGroups.concat([
+        {
+          name: "Alliance Dashboard",
+          icon: "mdi-home-group",
+          path: "/dashboard/alliance",
+          items: [
+            // { name: "Menus", icon: "mdi-menu", path: "/dashboard/alliance/menus" },
+          ],
+        },
+        {
+          name: "Server Dashboard",
+          icon: "mdi-account-group",
+          path: "/dashboard/server",
+          items: [
+            // { name: "Menus", icon: "mdi-menu", path: "/dashboard/server/menus" },
+          ],
+        },
+      ])
     }
   }
 
