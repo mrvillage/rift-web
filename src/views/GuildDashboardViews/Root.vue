@@ -5,7 +5,7 @@
         <div class="overline mb-2 ml-1">
           Quick Suggestions
         </div>
-        <v-row v-for="suggestion of quickSuggestions.filter((s) => s.condition()).slice(0, 3)" :key="suggestion">
+        <v-row v-for="suggestion of quickSuggestions.filter((s) => s.condition()).slice(0, 3)" :key="suggestion.description">
           <v-col>
             <v-card width="100%">
               <v-card-title>
