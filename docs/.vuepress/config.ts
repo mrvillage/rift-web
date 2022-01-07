@@ -1,26 +1,54 @@
-const { description } = require("../../package");
+import { defineConfig4CustomTheme, DefaultThemeConfig } from "@vuepress/types";
 
-module.exports = {
-  base: "/docs/",
-  dest: "dist/docs",
+interface ThemeConfig extends DefaultThemeConfig {
+  overrideTheme: string;
+}
+
+export default defineConfig4CustomTheme<ThemeConfig>({
+  dest: ".vuepress/dist",
   title: "Rift - Documentation",
-  description: description,
+  description:
+    "Rift is an all-in-one Discord utility and management bot for Politics and War. Check it out!",
   head: [
     ["meta", { name: "theme-color", content: "#be18c7" }],
+    ["link", { rel: "icon", href: "/logo.png" }],
+    ["link", { rel: "icon", href: "/icons/favicon.ico", type: "image/x-icon" }],
+    ["link", { rel: "manifest", href: "/manifest.json" }],
     ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
     [
       "meta",
       { name: "apple-mobile-web-app-status-bar-style", content: "black" },
     ],
+    [
+      "link",
+      { rel: "apple-touch-icon", href: "/icons/apple-touch-icon-152x152.png" },
+    ],
+    [
+      "link",
+      {
+        rel: "mask-icon",
+        href: "/icons/safari-pinned-tab.svg",
+        color: "#3eaf7c",
+      },
+    ],
+    [
+      "meta",
+      {
+        name: "msapplication-TileImage",
+        content: "/icons/msapplication-icon-144x144.png",
+      },
+    ],
+    ["meta", { name: "msapplication-TileColor", content: "#000000" }],
   ],
   theme: "default-prefers-color-scheme",
   themeConfig: {
     overrideTheme: "dark",
     repo: "",
-    editLinks: false,
+    editLinks: true,
+    editLinkText: "Something to add?",
     docsDir: "",
-    editLinkText: "",
-    lastUpdated: false,
+    lastUpdated: "Last Updated",
+    searchPlaceholder: "Looking for something?",
     nav: [
       {
         text: "Guides",
@@ -53,39 +81,39 @@ module.exports = {
           collapsable: false,
           children: [
             "",
-            "help",
             "about",
-            "link",
-            "verify",
-            "nation",
-            "me",
             "alliance",
-            "who",
-            "prices",
-            "margins",
-            "members",
-            "treaties",
-            "spies",
-            "revenue",
+            "alliance-settings",
             "alliances",
+            "bank",
             "colors",
-            "treasures",
-            "projects",
-            "top-revenue",
+            "condition",
+            "embassy",
+            "help",
+            "link",
+            "margins",
+            "me",
+            "members",
             "menu",
             "militarization",
-            "target",
+            "nation",
+            "prices",
+            "projects",
+            "revenue",
             "roles",
-            "ticket",
-            "tools",
-            "embassy",
-            "alliance-settings",
             "server-settings",
-            "condition",
+            "spies",
             "subscribe",
             "subscription",
-            "bank",
+            "target",
+            "ticket",
+            "tools",
             "toot",
+            "top-revenue",
+            "treasures",
+            "treaties",
+            "verify",
+            "who",
           ],
         },
       ],
@@ -93,7 +121,15 @@ module.exports = {
         {
           title: "Topics",
           collapsable: false,
-          children: [""],
+          children: [
+            "",
+            "conditions",
+            "credentials",
+            "menus",
+            "roles",
+            "subscriptions",
+            "targets",
+          ],
         },
       ],
     },
@@ -101,6 +137,13 @@ module.exports = {
   plugins: [
     "@vuepress/plugin-back-to-top",
     "@vuepress/plugin-medium-zoom",
+    [
+      "@vuepress/pwa",
+      {
+        serviceWorker: true,
+        updatePopup: true,
+      },
+    ],
     [
       "vuepress-plugin-global-variables",
       {
@@ -144,7 +187,7 @@ module.exports = {
             "The number of targets to offset the results by. Defaults to 0.",
           targetFindAttackArgument:
             "Whether to find nations to attack the nation provided instead of nations for the nation provided to attack. Defaults to false.",
-          rolesArgument: "The role ID of the role to use.",
+          rolesRoleArgument: "The role ID of the role to use.",
           rolesNameArgument: "The name of the role.",
           rolesRankArgument:
             "The rank of the role, determines its position in the hierarchy.",
@@ -184,4 +227,4 @@ module.exports = {
       },
     ],
   ],
-};
+});

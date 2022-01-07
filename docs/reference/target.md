@@ -3,16 +3,11 @@
 The target command group provides utilities related to finding
 targets and setting target reminders.
 
-## `/target reminder`
-
-The target reminder command group provides utilities related to setting
-target reminders.
-
-### `/target reminder add`
+## `/target reminder add`
 
 Adds a target reminder.
 
-#### Parameters
+### Parameters
 
 - `nation` : {{ $var.nationArgument }}
 - `channels` : A space separated list of channels to send the reminder to.
@@ -20,36 +15,31 @@ Adds a target reminder.
   the reminder is sent.
 - `direct_message` : Whether to send the reminder in a direct message as well.
 
-### `/target reminder remove`
+## `/target reminder remove`
 
 Remove a target reminder.
 
-#### Parameters
+### Parameters
 
 - `reminder` : {{ $var.targetReminderArgument }}
 
-### `/target reminder list`
+## `/target reminder list`
 
 List all target reminders the user has.
 
-### `/target reminder info`
+## `/target reminder info`
 
 Get information about a target reminder.
 
-#### Parameters
+### Parameters
 
 - `reminder` : {{ $var.targetReminderArgument }}
 
-## `/target find`
-
-The target reminder command group provides utilities related to setting
-target reminders.
-
-### `/target find custom`
+## `/target find custom`
 
 Find war targets with a custom configuration.
 
-#### Parameters
+### Parameters
 
 - `condition` : {{ $var.targetFindConditionArgument }}
 - `nation`: {{ $var.nationArgument }}
@@ -75,11 +65,11 @@ Find war targets with a custom configuration.
 - `offset` : {{ $var.targetFindOffsetArgument }}
 - `attack` : {{ $var.targetFindAttackArgument }}
 
-### `/target find raid`
+## `/target find raid`
 
 Find war targets with the raid configuration.
 
-#### Parameters
+### Parameters
 
 - `condition` : {{ $var.targetFindConditionArgument }}
 - `nation`: {{ $var.nationArgument }}
@@ -91,11 +81,11 @@ Find war targets with the raid configuration.
 - `offset` : {{ $var.targetFindOffsetArgument }}
 - `attack` : {{ $var.targetFindAttackArgument }}
 
-### `/target find nuke`
+## `/target find nuke`
 
 Find war targets with a the nuke configuration.
 
-#### Parameters
+### Parameters
 
 - `condition` : {{ $var.targetFindConditionArgument }}
 - `nation`: {{ $var.nationArgument }}
@@ -111,11 +101,11 @@ Find war targets with a the nuke configuration.
 - `offset` : {{ $var.targetFindOffsetArgument }}
 - `attack` : {{ $var.targetFindAttackArgument }}
 
-### `/target find military`
+## `/target find military`
 
 Find war targets with a the military configuration.
 
-#### Parameters
+### Parameters
 
 - `condition` : {{ $var.targetFindConditionArgument }}
 - `nation`: {{ $var.nationArgument }}

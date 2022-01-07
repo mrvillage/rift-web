@@ -23,7 +23,20 @@
       </div>
 
       <v-spacer />
-      <v-btn class="ml-3" color="gray" href="/docs" target="_blank">
+      <v-btn
+        class="ml-3"
+        color="gray"
+        href="https://discord.gg/dGeVksJnKg"
+        target="_blank"
+      >
+        Support Server
+      </v-btn>
+      <v-btn
+        class="ml-3"
+        color="gray"
+        href="https://docs.rift.mrvillage.dev"
+        target="_blank"
+      >
         Documentation
       </v-btn>
       <v-btn
@@ -106,8 +119,8 @@ export default class App extends Vue {
         provider: "discord",
       },
       {
-        redirectTo: "http://localhost:8080",
-        // redirectTo: "https://rift.mrvillage.dev"
+        // redirectTo: "http://localhost:8080",
+        redirectTo: "https://rift.mrvillage.dev",
       }
     );
   }

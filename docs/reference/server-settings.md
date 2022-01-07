@@ -94,56 +94,50 @@ Set or view the server manager roles.
 - `roles` : {{ $var.rolesArgument }}
 - `clear` : {{ $var.clearArgument }} {{ $var.defaultFalseArgument }}
 
-## `/server-settings alliance-auto-roles`
-
-The server-settings alliance-auto-roles command group provides a
-set of utilities for managing and dealing with alliance-based auto
-roles.
-
-### `/server-settings alliance-auto-roles info`
+## `/server-settings alliance-auto-roles info`
 
 Show information about the current alliance auto roles configuration.
 
-### `/server-settings alliance-auto-roles toggle`
+## `/server-settings alliance-auto-roles toggle`
 
 Toggle alliance auto roles on and off.
 
-#### Parameters
+### Parameters
 
 - `enable` : Whether or not to enable alliance auto roles.
 
-### `/server-settings alliance-auto-roles toggle-create`
+## `/server-settings alliance-auto-roles toggle-create`
 
 Toggle alliance auto roles automatic role creation on and off.
 
-#### Parameters
+### Parameters
 
 - `enable` : Whether or not to enable alliance auto roles
   automatic
   role creation.
 
-### `/server-settings alliance-auto-roles list`
+## `/server-settings alliance-auto-roles list`
 
 List all alliance auto roles.
 
-### `/server-settings alliance-auto-roles add`
+## `/server-settings alliance-auto-roles add`
 
 Add an auto role to an alliance.
 
-#### Parameters
+### Parameters
 
 - `role` : {{ $var.roleArgument }}
 - `alliance` : {{ $var.allianceArgument }}
 
-### `/server-settings alliance-auto-roles remove`
+## `/server-settings alliance-auto-roles remove`
 
 Remove an auto role from an alliance.
 
-#### Parameters
+### Parameters
 
 - `role` : {{ $var.roleArgument }}
 - `alliance` : {{ $var.allianceArgument }}
 
-### `/server-settings alliance-auto-roles run`
+## `/server-settings alliance-auto-roles run`
 
 Check and add/remove alliance auto roles from members.

@@ -69,77 +69,67 @@ Calculates the value of the provided resources.
 
 - `resources` : {{ $var.resourcesArgument }}
 
-## `/tools nation`
-
-The tools nation command group provides various tools for calculating the
-infrastructure, land, city and project costs of specific nations.
-
-### `/tools nation infrastructure`
+## `/tools nation infrastructure`
 
 Calculates the cost to modify a nation's infrastructure to
 the provided amount in each city.
 
-#### Parameters
+### Parameters
 
 - `after` : {{ $var.toolsAfterInfrastructureArgument }}
 - `nation` : {{ $var.nationArgument }}
 - `only_buy` : {{ $var.onlyBuyArgument }} {{ $var.defaultFalseArgument }}
 
-### `/tools nation land`
+## `/tools nation land`
 
 Calculates the cost to modify a nation's land to
 the provided amount in each city.
 
-#### Parameters
+### Parameters
 
 - `after` : {{ $var.toolsAfterLandArgument }}
 - `nation` : {{ $var.nationArgument }}
 - `only_buy` : {{ $var.onlyBuyArgument }} {{ $var.defaultFalseArgument }}
 
-### `/tools nation city`
+## `/tools nation city`
 
 Calculates the cost to buy a nation to a specified city count.
 
 - `after` : {{ $var.toolsAfterCityArgument }}
 - `nation` : {{ $var.nationArgument }}
 
-### `/tools nation projects`
+## `/tools nation projects`
 
 Calculate the cost of buying projects for a nation.
 
-#### Parameters
+### Parameters
 
 - `nation` : {{ $var.nationArgument }}
 - `page` : The page of projects to show.
 
-## `/tools alliance`
-
-The tools alliance command group provides various tools for calculating the
-infrastructure, land, city and project costs of specific alliance.
-
-### `/tools alliance infrastructure`
+## `/tools alliance infrastructure`
 
 Calculates the cost to modify every nation's infrastructure in the provided
 alliance to the amount specified in each city.
 
-#### Parameters
+### Parameters
 
 - `after` : {{ $var.toolsAfterInfrastructureArgument }}
 - `alliance` : {{ $var.allianceArgument }}
 - `only_buy` : {{ $var.onlyBuyArgument }} {{ $var.defaultFalseArgument }}
 
-### `/tools alliance land`
+## `/tools alliance land`
 
 Calculates the cost to modify every nation's land in the provided
 alliance to the amount specified in each city.
 
-#### Parameters
+### Parameters
 
 - `after` : {{ $var.toolsAfterLandArgument }}
 - `alliance` : {{ $var.allianceArgument }}
 - `only_buy` : {{ $var.onlyBuyArgument }} {{ $var.defaultFalseArgument }}
 
-### `/tools alliance city`
+## `/tools alliance city`
 
 Calculates the cost to buy every nation in the provided alliance to
 a specified city count.
@@ -147,12 +137,12 @@ a specified city count.
 - `after` : {{ $var.toolsAfterCityArgument }}
 - `alliance` : {{ $var.allianceArgument }}
 
-### `/tools alliance projects`
+## `/tools alliance projects`
 
 Calculate the cost of buying a project for every nation in
 the provided alliance.
 
-#### Parameters
+### Parameters
 
 - `alliance` : {{ $var.allianceArgument }}
 - `page` : The page of projects to show.

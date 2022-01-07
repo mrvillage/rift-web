@@ -21,16 +21,11 @@ Show the balance of an alliance bank.
 
 - `alliance` : {{ $var.allianceArgument }}
 
-## `/bank account`
-
-The bank account command group provides a set of utilities for managing
-bank accounts.
-
-### `/bank account create`
+## `/bank account create`
 
 Creates a new bank account for a user.
 
-#### Parameters
+### Parameters
 
 - `name` : The name of the bank account.
 - `war_chest` : Whether the account balance counts towards war chest audits.
@@ -40,47 +35,47 @@ Creates a new bank account for a user.
 - `primary` : Whether the account is your primary bank account.
   Defaults to false unless you don't have a primary account.
 
-### `/bank account delete`
+## `/bank account delete`
 
 Deletes a bank account.
 
-#### Parameters
+### Parameters
 
 - `account` : {{ $var.bankAccountArgument }}
 
-### `/bank account transfer`
+## `/bank account transfer`
 
 Transfer resources from one bank account to another.
 
-#### Parameters
+### Parameters
 
 - `from` : {{ $var.bankAccountArgument }} {{ $var.primaryBankAccountDefaultArgument}}
 - `to` : {{ $var.bankAccountArgument }}
 - `amount` : {{ $var.resourcesArgument }}
 - `note` : A note to attach to the transfer.
 
-### `/bank account info`
+## `/bank account info`
 
 Get information about a bank account.
 
-#### Parameters
+### Parameters
 
 - `account` : {{ $var.bankAccountArgument }}
 
-### `/bank account list`
+## `/bank account list`
 
 List a user's bank accounts in an alliance.
 
-#### Parameters
+### Parameters
 
 - `user` : {{ $var.memberOrUserArgument }}
 - `alliance` : {{ $var.allianceArgument }}
 
-### `/bank account edit`
+## `/bank account edit`
 
 Edit a bank account.
 
-#### Parameters
+### Parameters
 
 - `account` : {{ $var.bankAccountArgument }}
 - `name` : The new name of the bank account.
@@ -89,40 +84,40 @@ Edit a bank account.
 - `primary` : Whether the account is your primary bank account.
 - `resources` : The new amount of resources in the account.
 
-### `/bank account deposit`
+## `/bank account deposit`
 
 Deposit resources into a bank account.
 
-#### Parameters
+### Parameters
 
 - `account` : {{ $var.bankAccountArgument }}
 - `resources` : {{ $var.resourcesArgument }}
 - `note` : A note to attach to the deposit.
 
-### `/bank account deposit-check`
+## `/bank account deposit-check`
 
 Check for new deposits to a bank account.
 
-#### Parameters
+### Parameters
 
 - `account` : {{ $var.bankAccountArgument }}
 
-### `/bank account withdraw`
+## `/bank account withdraw`
 
 Withdraw resources from a bank account.
 
-#### Parameters
+### Parameters
 
 - `account` : {{ $var.bankAccountArgument }}
 - `resources` : {{ $var.resourcesArgument }}
 - `nation` : {{ $var.nationArgument }}
 - `note` : A note to attach to the withdraw.
 
-### `/bank account history`
+## `/bank account history`
 
 View the transaction history of a bank account.
 
-#### Parameters
+### Parameters
 
 - `account` : {{ $var.bankAccountArgument }}
 - `page` : The page of history to view.
@@ -134,10 +129,10 @@ View the transaction history of a bank account.
 The bank transaction command group provides a set of utilities for
 managing bank transactions.
 
-### `/bank transaction review`
+## `/bank transaction review`
 
 Review a pending bank transaction.
 
-#### Parameters
+### Parameters
 
 - `transaction` : {{ $var.transactionArgument }}
